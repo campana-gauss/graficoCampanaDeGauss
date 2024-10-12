@@ -2,6 +2,7 @@ package com.example.graficoCampanaDeGauss.Service;
 
 import com.example.graficoCampanaDeGauss.Entity.Estudiante;
 import com.example.graficoCampanaDeGauss.Repository.EstudianteRepository;
+import jakarta.persistence.EntityManager;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -15,7 +16,13 @@ public class EstudianteService {
     @Autowired
     private EstudianteRepository estudianteRepository;
 
+
     public void guardarEstudiantes() {
+
+        // Eliminar la tabla si existe
+        estudianteRepository.deleteAllInBatch();
+
+
         try (BufferedReader br = new BufferedReader(new FileReader("src/main/resources/datos_estudiantes.csv"))) {
             // Omitir la fila de encabezado
             br.readLine();
