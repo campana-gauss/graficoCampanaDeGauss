@@ -1,4 +1,4 @@
-spring.datasource.url=jdbc:mysql://localhost:3309/campana_database
+spring.datasource.url=jdbc:mysql://localhost:3308/campana_database
 spring.datasource.username=admin
 spring.datasource.password=admin
 spring.jpa.hibernate.ddl-auto=update
