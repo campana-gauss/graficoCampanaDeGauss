@@ -1,4 +1,6 @@
 # Simulación Interactiva del Tablero de Galton hecho por Daniel Andrés Moreno Rey y Rodrigo Rojas Redondo
+
+https://github.com/campana-gauss
 https://github.com/campana-gauss/graficoCampanaDeGauss.git
 
 Este proyecto es una **simulación visual del Tablero de Galton**, también conocido como la "Máquina de la Distribución Normal". A través de este tablero, se puede ver cómo se forma una **distribución normal** (o curva de campana) cuando muchas bolas caen a través de una serie de clavos y aterrizan en contenedores en la parte inferior.
