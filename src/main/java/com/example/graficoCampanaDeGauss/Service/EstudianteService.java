@@ -10,6 +10,8 @@ import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
 
+import java.util.Optional;
+
 @Service
 public class EstudianteService {
 
@@ -41,5 +43,8 @@ public class EstudianteService {
         } catch (IOException e) {
             // Manejar la excepción
         }
+    }
+    public Optional<Estudiante> obtenerEstudiante(Long id) {
+        return estudianteRepository.findById(id);
     }
 }
