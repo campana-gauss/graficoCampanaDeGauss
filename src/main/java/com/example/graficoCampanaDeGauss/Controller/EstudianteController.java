@@ -23,7 +23,27 @@ public class EstudianteController {
     @GetMapping("/edades")
     public List<Double> getAllEdades() {
         return estudianteRepository.findAll().stream()
-            .map(Estudiante::getEdad)
-            .collect(Collectors.toList());
-}
+                .map(Estudiante::getEdad)
+                .collect(Collectors.toList());
+    }
+    @GetMapping("/alturas")
+    public List<Double> getAllAlturas() {
+        return estudianteRepository.findAll().stream()
+                .map(Estudiante::getAltura)
+                .collect(Collectors.toList());
+    }
+
+    @GetMapping("/pesos")
+    public List<Double> getAllPesos() {
+        return estudianteRepository.findAll().stream()
+                .map(Estudiante::getPeso)
+                .collect(Collectors.toList());
+    }
+
+    @GetMapping("/notasFinales")
+    public List<Double> getAllNotasFinales() {
+        return estudianteRepository.findAll().stream()
+                .map(Estudiante::getNotaFinal)
+                .collect(Collectors.toList());
+    }
 }
