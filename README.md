@@ -55,7 +55,7 @@ Sin los hilos, el programa solo podría manejar una bola a la vez, lo cual harí
    - Esto iniciará el servidor en `http://localhost:8080`.
 
 2. **Acceder al frontend**:
-   - Abre tu navegador web y visita la página `http://localhost:8080/graficas.html`. Aquí verás la simulación en acción.
+   - Abre tu navegador web y visita la página `http://localhost:8080/grafica.html`. Aquí verás la simulación en acción.
 
 ### Conclusión
 
