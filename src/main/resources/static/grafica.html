@@ -1,13 +1,32 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <!-- ... -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tablero de Galton</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;  /* Altura completa de la ventana */
+            margin: 0;
+            background-color: #f7f7f7;
+        }
+        #my_dataviz {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 900px; /* Ajusta la altura según tus necesidades */
+            overflow-y: auto; /* Agrega una barra de desplazamiento vertical si es necesario */
+        }
+    </style>
     <script src="https://d3js.org/d3.v5.min.js"></script>
 </head>
 <body>
-    <!-- ... -->
-    <div id="my_dataviz"></div>
-    <!-- ... -->
-    <script src="/histograma.js"></script>
+
+<div id="my_dataviz"></div> <!-- Contenedor para el tablero de Galton -->
+
+<script src="/histograma.js"></script><!-- Tu archivo de JavaScript con la simulación -->
+
 </body>
-</html>

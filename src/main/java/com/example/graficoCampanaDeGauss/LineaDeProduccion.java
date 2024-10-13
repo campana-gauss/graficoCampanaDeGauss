@@ -9,15 +9,13 @@ import java.util.concurrent.Semaphore;
 import java.util.concurrent.ThreadLocalRandom;
 
 @Component
-public class EstacionDeTrabajo implements Runnable {
+public class LineaDeProduccion implements Runnable {
     private final BlockingQueue<Estudiante> buffer;
-    private final EstudianteRepository estudianteRepository;
     private final Semaphore semaphore;
     private volatile boolean running = true;
 
-    public EstacionDeTrabajo(BlockingQueue<Estudiante> buffer, EstudianteRepository estudianteRepository, Semaphore semaphore) {
+    public LineaDeProduccion(BlockingQueue<Estudiante> buffer, Semaphore semaphore) {
         this.buffer = buffer;
-        this.estudianteRepository = estudianteRepository;
         this.semaphore = semaphore;
     }
 
@@ -25,11 +23,11 @@ public class EstacionDeTrabajo implements Runnable {
     public void run() {
         while (running) {
             try {
-                semaphore.acquire();  // Adquirir un semáforo para controlar el número de hilos que ejecutan simultáneamente
-                Estudiante estudiante = new Estudiante(); // Simulación de creación del componente
-                // Simular la creación de un componente y colocarlo en el buffer
-                buffer.put(estudiante);
-                semaphore.release();  // Liberar el semáforo para que otro hilo pueda trabajar
+                semaphore.acquire(); // Controlar la cantidad de bolas que se ensamblan simultáneamente
+                Estudiante estudiante = buffer.take(); // Tomar un estudiante (componente) del buffer
+                // Simular el ensamblaje del componente en la máquina
+                estudiante.run(); // Ejecuta la lógica de proceso del estudiante
+                semaphore.release();  // Liberar el semáforo
             } catch (InterruptedException e) {
                 Thread.currentThread().interrupt();
             }
@@ -40,5 +38,3 @@ public class EstacionDeTrabajo implements Runnable {
         this.running = false;
     }
 }
-
-
