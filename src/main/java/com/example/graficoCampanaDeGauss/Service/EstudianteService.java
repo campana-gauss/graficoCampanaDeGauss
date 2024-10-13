@@ -31,6 +31,7 @@ public class EstudianteService {
             while ((linea = br.readLine()) != null) {
                 String[] campos = linea.split(",");
                 Estudiante estudiante = new Estudiante();
+                estudiante.setId(Long.parseLong(campos[0]));
                 estudiante.setEdad(Double.parseDouble(campos[1]));
                 estudiante.setAltura(Double.parseDouble(campos[2]));
                 estudiante.setPeso(Double.parseDouble(campos[3]));
@@ -39,7 +40,7 @@ public class EstudianteService {
                 estudianteRepository.save(estudiante);
             }
         } catch (IOException e) {
-            // Manejar la excepción
+            throw new RuntimeException("fallo al obtener los datos", e);
         }
     }
 }
