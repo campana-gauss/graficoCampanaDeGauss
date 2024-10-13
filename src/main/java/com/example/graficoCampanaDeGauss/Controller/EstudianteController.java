@@ -2,8 +2,11 @@ package com.example.graficoCampanaDeGauss.Controller;
 
 import com.example.graficoCampanaDeGauss.Entity.Estudiante;
 import com.example.graficoCampanaDeGauss.Repository.EstudianteRepository;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
@@ -45,5 +48,12 @@ public class EstudianteController {
         return estudianteRepository.findAll().stream()
                 .map(Estudiante::getNotaFinal)
                 .collect(Collectors.toList());
+    }
+
+    @PostMapping("/sendData")
+    public Double sendData(@RequestBody Double data) {
+        // Aquí puedes procesar los datos recibidos como prefieras
+        // Por ahora, simplemente los devolvemos
+        return data;
     }
 }
